@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "personal-assistant",
+      "runtimeExecutable": "./run.sh",
+      "runtimeArgs": [],
+      "port": 8000
+    }
+  ]
+}
