@@ -13,11 +13,23 @@ Everything – chats and memory – is stored on this machine in `data/`.
 Open http://127.0.0.1:8000. Ollama must be running with the model `qwen3-14b-16k`
 (see `PA_CHAT_MODEL` below to use another one).
 
+## Desktop app (macOS)
+
+```bash
+./scripts/make_mac_app.sh   # once; re-run if you move this folder
+```
+
+This builds **Personal Assistant.app** in `/Applications` and a shortcut on the Desktop. Double-click
+it to open the chat in its own window (no terminal or browser); drag it to the Dock to keep it there.
+It starts Ollama if needed, runs the server on port 8000 (or a free port if that's taken), and stops
+the server when you close the window. Logs go to `data/desktop.log`. The icon is `assets/icon.png`.
+
 ## Layout
 
 ```
 app/
   main.py            FastAPI routes: chat (SSE streaming), threads, memories, static UI
+  desktop.py         desktop entry point: server in the background + native window
   config.py          all settings (env-overridable)
   db.py              SQLite store: threads, messages, memories
   ollama_client.py   async Ollama /api/chat client (streaming + JSON-schema calls)
